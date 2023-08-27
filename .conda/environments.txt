@@ -1,0 +1,3 @@
+/Users/danial/opt/anaconda3
+/Users/danial/opt/anaconda3/envs/q
+/Users/danial/opt/anaconda3/envs/manim
