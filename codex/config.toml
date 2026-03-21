@@ -1,0 +1,59 @@
+# Codex Configuration
+# ===================
+#
+# Default settings for Codex sessions launched from this environment.
+# This file controls model selection, enabled features, trusted
+# projects, and TUI behaviour.
+
+model = "gpt-5.4"
+model_context_window = 1_000_000
+model_auto_compact_token_limit = 900_000
+model_reasoning_effort = "high"
+personality = "friendly"
+approvals_reviewer = "user"
+sandbox_mode = "read-only"
+
+[features]
+multi_agent = true
+js_repl = true
+memories = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[projects."/Users/danial/Xor/Packages/contra"]
+trust_level = "trusted"
+
+[projects."/Users/danial"]
+trust_level = "trusted"
+
+[projects."/Users/danial/Xor/Packages/automata"]
+trust_level = "trusted"
+
+[projects."/Users/danial/Library/Mobile Documents/com~apple~CloudDocs/Documents/IBA/Automata/2026-Spring/Problem Sets"]
+trust_level = "trusted"
+
+[tui]
+theme = "base16"
+status_line = [
+  "model-with-reasoning",
+  "context-remaining",
+  "current-dir",
+  "project-root",
+  "git-branch",
+  "five-hour-limit",
+  "weekly-limit",
+  "context-window-size",
+]
+terminal_title = ["spinner", "project", "status", "thread", "git-branch", "model", "task-progress"]
+
+[marketplaces.openai-bundled]
+last_updated = "2026-04-17T17:52:40Z"
+source_type = "local"
+source = "/Users/danial/.cache/codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[memories]
+no_memories_if_mcp_or_web_search = false

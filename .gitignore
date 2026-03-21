@@ -1,0 +1,73 @@
+# Git Ignore
+# ==========
+#
+# Controls which files in the dot-files repository are tracked.
+#
+# This file uses a whitelist approach: everything is ignored by default, and
+# only explicitly listed paths are tracked. This prevents secrets, tokens, and
+# application-generated state from being accidentally committed.
+
+# Defaults
+# --------
+#
+# Ignore everything by default.
+*
+
+# Tracked Files
+# -------------
+!.gitignore
+!README.md
+!Brewfile
+!codex/
+!codex/**
+!git/
+!git/**
+!starship.toml
+!zed/
+!zed/settings.json
+!zed/keymap.json
+!zsh/
+!zsh/**
+
+# Operating Systems
+# -----------------
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100/
+.Trashes/
+
+# Resource fork files created when macOS writes to filesystems that lack
+# native support for extended attributes (e.g., FAT32, SMB shares).
+._*
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors
+# -------
+*~
+.idea/
+.vscode/
+.zed/
+*.swp
+*.swo
+*.sublime-workspace
+.obsidian/
+
+# Logs
+# ----
+*.log
+
+# Assistants
+# ----------
+#
+# AI coding assistants store context and configuration in these locations.
+# They are user-specific and should not be committed.
+.agents/
+.claude/
+.gemini/
+AGENTS.md
+CLAUDE.md
+GEMINI.md

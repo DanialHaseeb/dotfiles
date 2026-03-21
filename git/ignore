@@ -1,0 +1,57 @@
+# Global Git Ignore
+# =================
+#
+# Patterns for files that should be ignored across all repositories.
+# These are operating system artifacts, editor configuration, and personal
+# tooling rather than project-specific ignores.
+
+
+# Operating Systems
+# -----------------
+.AppleDouble
+.DS_Store
+.LSOverride
+.Spotlight-V100/
+.Trashes/
+
+# Resource fork files created when macOS writes to filesystems that lack
+# native support for extended attributes (e.g., FAT32, SMB shares).
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
+# Editors
+# -------
+*.sublime-workspace
+*.swo
+*.swp
+*~
+.idea/
+.obsidian/
+.vscode/
+.zed/
+
+
+# Logs
+# ----
+*.log
+
+
+# Assistants
+# ----------
+#
+# AI coding assistants store context and configuration in these locations.
+# They are user-specific and should not be committed.
+.agents/
+.claude/
+.gemini/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+
+# Ephemera
+# --------
+.cache/
+.local/

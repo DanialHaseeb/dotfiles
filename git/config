@@ -1,0 +1,71 @@
+# Git Configuration
+# =================
+#
+# Global, per-user settings for Git behaviour, aliases, and tooling.
+
+
+[user]
+	name = Danial
+	email = 76565771+DanialHaseeb@users.noreply.github.com
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+# Delta (https://github.com/dandavison/delta) provides syntax highlighting
+# and improved diff formatting. It replaces the default pager for all git
+# output that would normally go through less.
+[core]
+	pager = delta
+
+# When using interactive commands like `git add --patch`, the raw diff
+# output is passed through delta for colourisation before display.
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	side-by-side = true
+
+# zdiff3 shows three versions during merge conflicts: the original text
+# before either branch modified it, plus both conflicting versions. This
+# additional context makes it easier to understand what each side intended.
+[merge]
+	conflictStyle = zdiff3
+
+[alias]
+	# Rewind the last commit while keeping its changes staged, allowing you
+	# to recommit with a different message or additional modifications.
+	undo = reset --soft HEAD~1
+
+	# Add staged changes to the previous commit without modifying its message.
+	amend = commit --amend --no-edit
+
+	# Display a compact graph of all branches and their commit history.
+	graph = log --graph --oneline --decorate --all
+
+	staged = diff --cached
+	unstaged = diff
+
+	# Search all commit messages for a pattern. Usage: git find "search term"
+	find = log --oneline --all --grep
+
+	# List branches ordered by most recent commit, showing relative timestamps.
+	branches = branch --sort=-committerdate --format='%(committerdate:relative)\t%(refname:short)'
+
+	# List stashes with their messages and relative timestamps.
+	stashes = stash list --format='%gd: %s (%cr)'
+
+# By default, git notes are not displayed in log output. This setting
+# ensures notes appear automatically when viewing commits.
+[notes]
+	displayRef = refs/notes/*
+
+# Automatically sync git notes when pushing to or fetching from "origin".
+# This only applies to remotes named "origin"; notes must be synced manually
+# for other remote names.
+[remote "origin"]
+	fetch = +refs/notes/*:refs/notes/*
+	push = refs/notes/*

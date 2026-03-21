@@ -1,0 +1,7 @@
+# Codex Skills
+# ============
+#
+# Codex manages system skills at runtime. User-installed skills in this
+# directory are tracked with the rest of the Codex configuration.
+
+.system/
